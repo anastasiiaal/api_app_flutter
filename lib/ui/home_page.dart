@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  HomePageState createState() => HomePageState();
+}
+
+class HomePageState extends State<HomePage> {
+  @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double containerWidth = width - 30;
 
     return Scaffold(
       appBar: AppBar(
@@ -31,9 +35,6 @@ class HomePage extends StatelessWidget {
                 const SizedBox(height: 50),
                 ElevatedButton(
                   onPressed: null,
-                  //     () {
-                  //   Navigator.of(context).push(MaterialPageRoute(builder: (context) => const CountryPage()));
-                  // },
                   style: ButtonStyle(
                     backgroundColor: MaterialStatePropertyAll(Colors.blueGrey[400]),
                     shape: MaterialStatePropertyAll(
