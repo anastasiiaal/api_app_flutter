@@ -1,3 +1,4 @@
+import 'package:api_app_flutter/ui/country_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -34,7 +35,10 @@ class HomePageState extends State<HomePage> {
                 ),
                 const SizedBox(height: 50),
                 ElevatedButton(
-                  onPressed: null,
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (BuildContext context) => const CountryPage()));
+                  },
                   style: ButtonStyle(
                     backgroundColor: MaterialStatePropertyAll(Colors.blueGrey[400]),
                     shape: MaterialStatePropertyAll(
