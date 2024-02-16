@@ -1,3 +1,5 @@
+import 'package:api_app_flutter/widgets/simple_text_widget.dart';
+import 'package:api_app_flutter/widgets/title_widget.dart';
 import 'package:flutter/material.dart';
 
 class CountryPage extends StatefulWidget {
@@ -12,6 +14,8 @@ class CountryPageState extends State<CountryPage> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    double containerWidth = width - 30;
+    double columnWidth = containerWidth / 2 - 5;
 
     return Scaffold(
       appBar: AppBar(
@@ -24,10 +28,10 @@ class CountryPageState extends State<CountryPage> {
             padding: const EdgeInsets.all(15.0),
             child: Column(
               children: [
-                const SizedBox(height: 50),
+                const SizedBox(height: 30),
                 Container(
                   height: 200,
-                  width: width - 30,
+                  width: containerWidth,
                   alignment: Alignment.center,
                   child: Container(
                     decoration: BoxDecoration(
@@ -44,6 +48,55 @@ class CountryPageState extends State<CountryPage> {
                       'images/fr.png',
                     ),
                   )
+                ),
+                const SizedBox(height: 50),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Column(
+                      children: [
+                        SmallTitle(width: columnWidth, text: "Native name"),
+                        SimpleText(width: columnWidth, text: "France"),
+                        const SizedBox(height: 20),
+                        SmallTitle(width: columnWidth, text: "Capital"),
+                        SimpleText(width: columnWidth, text: "Paris"),
+                        const SizedBox(height: 20),
+                        SmallTitle(width: columnWidth, text: "Languages"),
+                        SimpleText(width: columnWidth, text: "French"),
+                        const SizedBox(height: 20),
+                        SmallTitle(width: columnWidth, text: "Currencies"),
+                        SimpleText(width: columnWidth, text: "Euro"),
+                        const SizedBox(height: 20),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        SmallTitle(width: columnWidth, text: "Population"),
+                        SimpleText(width: columnWidth, text: "67,391,582"),
+                        const SizedBox(height: 20),
+                        SmallTitle(width: columnWidth, text: "Region"),
+                        SimpleText(width: columnWidth, text: "Europe"),
+                        const SizedBox(height: 20),
+                        SmallTitle(width: columnWidth, text: "Sub Region"),
+                        SimpleText(width: columnWidth, text: "Western Europe"),
+                        const SizedBox(height: 20),
+                        SmallTitle(width: columnWidth, text: "Domain"),
+                        SimpleText(width: columnWidth, text: ".fr"),
+                        const SizedBox(height: 20),
+                      ],
+                    )
+                  ],
+                ),
+                Row(
+                  children: [
+                    Column(
+                      children: [
+                        SmallTitle(width: containerWidth, text: "Border countries"),
+                        SimpleText(width: containerWidth, text: "Spain, Italy, Andorra, Germany, Belgium, Monaco, Switzerland, Luxembourg"),
+                      ],
+                    )
+                  ],
                 ),
                 const SizedBox(height: 50),
               ],
