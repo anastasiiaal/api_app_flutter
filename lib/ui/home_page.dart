@@ -9,6 +9,14 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
+  late TextEditingController searchEditingController;
+
+  @override
+  void initState() {
+    super.initState();
+    searchEditingController = TextEditingController();
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -34,6 +42,8 @@ class HomePageState extends State<HomePage> {
                   ),
                 ),
                 const SizedBox(height: 50),
+                customTextField(controller: searchEditingController, hint: "Select your coutry", edgeInsets: const EdgeInsets.all(12.0)),
+                const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).push(
@@ -55,6 +65,22 @@ class HomePageState extends State<HomePage> {
               ],
             ),
           )
+      ),
+    );
+  }
+
+  Widget customTextField({
+    required EdgeInsets edgeInsets,
+    required TextEditingController controller,
+    String? hint
+  }) {
+    return Padding(
+      padding: edgeInsets,
+      child: TextField(
+        controller: controller,
+        textAlign: TextAlign.center,
+        decoration: InputDecoration(hintText: hint),
+        onSubmitted: null,
       ),
     );
   }
