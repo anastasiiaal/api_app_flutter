@@ -14,7 +14,7 @@ class SmallTitle extends StatelessWidget {
         child: Text(
             text,
             textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 18, height: 1.8, fontWeight: FontWeight.bold)
+            style: TextStyle(fontSize: 18, height: 1.8, fontWeight: FontWeight.bold, color: Colors.blueGrey[900])
         ),
       );
   }

@@ -14,7 +14,7 @@ class SimpleText extends StatelessWidget {
       child: Text(
           text,
           textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 18, height: 1.8)
+          style: TextStyle(fontSize: 18, height: 1.8, color: Colors.blueGrey[700])
       ),
     );
   }

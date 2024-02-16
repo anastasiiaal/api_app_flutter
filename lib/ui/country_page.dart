@@ -18,6 +18,7 @@ class CountryPageState extends State<CountryPage> {
     double columnWidth = containerWidth / 2 - 5;
 
     return Scaffold(
+      backgroundColor: Colors.blueGrey[30],
       appBar: AppBar(
         backgroundColor: Colors.blueGrey[300],
         title: Text('countryName here', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blueGrey[900])),
