@@ -16,7 +16,9 @@ Future<Country> fetchCountryData(String countryName) async {
         region: countryJson[0]['region'] ?? "—",
         subRegion: countryJson[0]['subregion'] ?? "—",
         capital: countryJson[0]['capital'] != null ? countryJson[0]['capital'][0] : "—",
-        currencies: (countryJson[0]['currencies'] != null) ? countryJson[0]['currencies'].keys.toList() : ["—"],
+        currencies: (countryJson[0]['currencies'] != null) ?
+          countryJson[0]['currencies'].values.map((currency) => currency['name']).toList().cast<String>() :
+          ["—"],
         languages: (countryJson[0]['languages'] != null) ? countryJson[0]['languages'].values.toList().cast<String>() : ["—"],
         domains: (countryJson[0]['tld'] != null) ? List<String>.from(countryJson[0]['tld']) : ["—"],
         borderCountries: (countryJson[0]['borders'] != null) ? List<String>.from(countryJson[0]['borders']) : ["—"],
