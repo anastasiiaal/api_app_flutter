@@ -21,7 +21,7 @@ Future<Country> fetchCountryData(String countryName) async {
           ["—"],
         languages: (countryJson[0]['languages'] != null) ? countryJson[0]['languages'].values.toList().cast<String>() : ["—"],
         domains: (countryJson[0]['tld'] != null) ? List<String>.from(countryJson[0]['tld']) : ["—"],
-        borderCountries: (countryJson[0]['borders'] != null) ? List<String>.from(countryJson[0]['borders']) : ["—"],
+        borderCountries: (countryJson[0]['borders'] != null) ? List<String>.from(countryJson[0]['borders']) : [],
       );
     } else {
       throw Exception('No country found');

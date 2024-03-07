@@ -23,12 +23,14 @@ class CountryPageState extends State<CountryPage> {
   }
 
   void fetchBorderCountryNames() async {
-    if (widget.country.borderCountries.isNotEmpty && widget.country.borderCountries[0] != "—") {
+    if (widget.country.borderCountries.isNotEmpty) {
       final requests = widget.country.borderCountries.map((code) => fetchCountryName(code));
       final names = await Future.wait(requests);
       setState(() {
         borderCountryNames = names;
       });
+    } else {
+      borderCountryNames = ["—"];
     }
   }
 
