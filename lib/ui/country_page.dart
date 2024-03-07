@@ -2,6 +2,7 @@ import 'package:api_app_flutter/widgets/simple_text_widget.dart';
 import 'package:api_app_flutter/widgets/title_widget.dart';
 import 'package:flutter/material.dart';
 import '../model/country.dart';
+import 'package:intl/intl.dart';
 
 class CountryPage extends StatefulWidget {
   final Country country;
@@ -18,6 +19,7 @@ class CountryPageState extends State<CountryPage> {
     double width = MediaQuery.of(context).size.width;
     double containerWidth = width - 30;
     double columnWidth = containerWidth / 2 - 5;
+    String formattedPopulation = NumberFormat('#,##0', 'en_US').format(widget.country.population);
 
     return Scaffold(
       backgroundColor: Colors.blueGrey[30],
@@ -76,7 +78,7 @@ class CountryPageState extends State<CountryPage> {
                     Column(
                       children: [
                         SmallTitle(width: columnWidth, text: "Population"),
-                        SimpleText(width: columnWidth, text: widget.country.population.toString()),
+                        SimpleText(width: columnWidth, text: formattedPopulation),
                         const SizedBox(height: 20),
                         SmallTitle(width: columnWidth, text: "Region"),
                         SimpleText(width: columnWidth, text: widget.country.region),
