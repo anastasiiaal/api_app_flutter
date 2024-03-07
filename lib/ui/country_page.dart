@@ -3,6 +3,7 @@ import 'package:api_app_flutter/widgets/title_widget.dart';
 import 'package:flutter/material.dart';
 import '../model/country.dart';
 import 'package:intl/intl.dart';
+import '../utils/fetch_country_name.dart';
 
 class CountryPage extends StatefulWidget {
   final Country country;
@@ -13,6 +14,23 @@ class CountryPage extends StatefulWidget {
 }
 
 class CountryPageState extends State<CountryPage> {
+  List<String> borderCountryNames = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchBorderCountryNames();
+  }
+
+  void fetchBorderCountryNames() async {
+    if (widget.country.borderCountries.isNotEmpty && widget.country.borderCountries[0] != "—") {
+      final requests = widget.country.borderCountries.map((code) => fetchCountryName(code));
+      final names = await Future.wait(requests);
+      setState(() {
+        borderCountryNames = names;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +116,7 @@ class CountryPageState extends State<CountryPage> {
                     Column(
                       children: [
                         SmallTitle(width: containerWidth, text: "Border countries"),
-                        SimpleText(width: containerWidth, text: widget.country.borderCountries.join(", ")),
+                        SimpleText(width: containerWidth, text: borderCountryNames.join(", ")),
                       ],
                     )
                   ],
