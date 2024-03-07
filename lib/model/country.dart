@@ -8,6 +8,8 @@ class Country {
   String capital;
   List<String> currencies;
   List<String> languages;
+  List<String> domains;
+  List<String> borderCountries;
 
   Country({
     this.flagUrl = "",
@@ -19,5 +21,7 @@ class Country {
     this.capital = "",
     this.currencies = const [],
     this.languages = const [],
+    this.domains = const [],
+    this.borderCountries = const [],
   });
 }

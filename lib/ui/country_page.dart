@@ -66,10 +66,10 @@ class CountryPageState extends State<CountryPage> {
                         SimpleText(width: columnWidth, text: widget.country.capital),
                         const SizedBox(height: 20),
                         SmallTitle(width: columnWidth, text: "Languages"),
-                        SimpleText(width: columnWidth, text: "French"),
+                        SimpleText(width: columnWidth, text: widget.country.languages.join(", ")),
                         const SizedBox(height: 20),
                         SmallTitle(width: columnWidth, text: "Currencies"),
-                        SimpleText(width: columnWidth, text: "Euro"),
+                        SimpleText(width: columnWidth, text: widget.country.currencies.join(", ")),
                         const SizedBox(height: 20),
                       ],
                     ),
@@ -85,7 +85,7 @@ class CountryPageState extends State<CountryPage> {
                         SimpleText(width: columnWidth, text: widget.country.subRegion),
                         const SizedBox(height: 20),
                         SmallTitle(width: columnWidth, text: "Domain"),
-                        SimpleText(width: columnWidth, text: ".fr"),
+                        SimpleText(width: columnWidth, text: widget.country.domains.join(", ")),
                         const SizedBox(height: 20),
                       ],
                     )
@@ -96,7 +96,7 @@ class CountryPageState extends State<CountryPage> {
                     Column(
                       children: [
                         SmallTitle(width: containerWidth, text: "Border countries"),
-                        SimpleText(width: containerWidth, text: "Spain, Italy, Andorra, Germany, Belgium, Monaco, Switzerland, Luxembourg"),
+                        SimpleText(width: containerWidth, text: widget.country.borderCountries.join(", ")),
                       ],
                     )
                   ],
