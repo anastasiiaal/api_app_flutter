@@ -10,11 +10,12 @@ Future<Country> fetchCountryData(String countryName) async {
     if (countryJson.isNotEmpty) {
       return Country(
         flagUrl: countryJson[0]['flags']['png'] ?? "",
-        countryName: countryJson[0]['name']['common'] ?? "",
-        population: countryJson[0]['population'] ?? "",
-        region: countryJson[0]['region'] ?? "",
-        subRegion: countryJson[0]['subregion'] ?? "",
-        capital: countryJson[0]['capital'] != null ? countryJson[0]['capital'][0] : "",
+        countryName: countryJson[0]['name']['common'] ?? "—",
+        officialName: countryJson[0]['name']['official'] ?? "—",
+        population: countryJson[0]['population'] ?? "—",
+        region: countryJson[0]['region'] ?? "—",
+        subRegion: countryJson[0]['subregion'] ?? "—",
+        capital: countryJson[0]['capital'] != null ? countryJson[0]['capital'][0] : "—",
         currencies: (countryJson[0]['currencies'] != null) ? countryJson[0]['currencies'].keys.toList() : [],
         languages: (countryJson[0]['languages'] != null) ? countryJson[0]['languages'].values.toList().cast<String>() : [],
       );

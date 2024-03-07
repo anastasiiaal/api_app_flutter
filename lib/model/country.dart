@@ -1,6 +1,7 @@
 class Country {
   String flagUrl;
   String countryName;
+  String officialName;
   int? population;
   String region;
   String subRegion;
@@ -11,6 +12,7 @@ class Country {
   Country({
     this.flagUrl = "",
     this.countryName = "",
+    this.officialName = "",
     this.population,
     this.region = "",
     this.subRegion = "",

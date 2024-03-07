@@ -47,8 +47,8 @@ class CountryPageState extends State<CountryPage> {
                         ),
                       ],
                     ),
-                    child: Image.asset(
-                      'images/fr.png',
+                    child: Image(
+                      image: NetworkImage(widget.country.flagUrl),
                     ),
                   )
                 ),
@@ -60,10 +60,10 @@ class CountryPageState extends State<CountryPage> {
                     Column(
                       children: [
                         SmallTitle(width: columnWidth, text: "Native name"),
-                        SimpleText(width: columnWidth, text: "France"),
+                        SimpleText(width: columnWidth, text: widget.country.officialName),
                         const SizedBox(height: 20),
                         SmallTitle(width: columnWidth, text: "Capital"),
-                        SimpleText(width: columnWidth, text: "Paris"),
+                        SimpleText(width: columnWidth, text: widget.country.capital),
                         const SizedBox(height: 20),
                         SmallTitle(width: columnWidth, text: "Languages"),
                         SimpleText(width: columnWidth, text: "French"),
@@ -76,13 +76,13 @@ class CountryPageState extends State<CountryPage> {
                     Column(
                       children: [
                         SmallTitle(width: columnWidth, text: "Population"),
-                        SimpleText(width: columnWidth, text: "67,391,582"),
+                        SimpleText(width: columnWidth, text: widget.country.population.toString()),
                         const SizedBox(height: 20),
                         SmallTitle(width: columnWidth, text: "Region"),
-                        SimpleText(width: columnWidth, text: "Europe"),
+                        SimpleText(width: columnWidth, text: widget.country.region),
                         const SizedBox(height: 20),
                         SmallTitle(width: columnWidth, text: "Sub Region"),
-                        SimpleText(width: columnWidth, text: "Western Europe"),
+                        SimpleText(width: columnWidth, text: widget.country.subRegion),
                         const SizedBox(height: 20),
                         SmallTitle(width: columnWidth, text: "Domain"),
                         SimpleText(width: columnWidth, text: ".fr"),
