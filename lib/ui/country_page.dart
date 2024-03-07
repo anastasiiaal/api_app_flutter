@@ -1,9 +1,11 @@
 import 'package:api_app_flutter/widgets/simple_text_widget.dart';
 import 'package:api_app_flutter/widgets/title_widget.dart';
 import 'package:flutter/material.dart';
+import '../model/country.dart';
 
 class CountryPage extends StatefulWidget {
-  const CountryPage({super.key});
+  final Country country;
+  const CountryPage({super.key, required this.country});
 
   @override
   CountryPageState createState() => CountryPageState();
@@ -21,7 +23,7 @@ class CountryPageState extends State<CountryPage> {
       backgroundColor: Colors.blueGrey[30],
       appBar: AppBar(
         backgroundColor: Colors.blueGrey[300],
-        title: Text('countryName here', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blueGrey[900])),
+        title: Text(widget.country.countryName, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blueGrey[900])),
         centerTitle: true,
       ),
       body: SingleChildScrollView(

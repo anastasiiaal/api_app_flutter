@@ -1,5 +1,7 @@
 import 'package:api_app_flutter/ui/country_page.dart';
 import 'package:flutter/material.dart';
+import '../model/country.dart';
+import '../utils/fetch_country_data.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -45,9 +47,11 @@ class HomePageState extends State<HomePage> {
                 customTextField(controller: searchEditingController, hint: "Select your coutry", edgeInsets: const EdgeInsets.all(12.0)),
                 const SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
+                    Country country = await fetchCountryData(searchEditingController.text);
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (BuildContext context) => const CountryPage()));
+                      MaterialPageRoute(builder: (BuildContext context) => CountryPage(country: country)), // Retirez le const ici
+                    );
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStatePropertyAll(Colors.blueGrey[400]),
