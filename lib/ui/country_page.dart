@@ -44,8 +44,8 @@ class CountryPageState extends State<CountryPage> {
     return Scaffold(
       backgroundColor: Colors.blueGrey[30],
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey[300],
-        title: Text(widget.country.countryName, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blueGrey[900])),
+        backgroundColor: Colors.cyan[800],
+        title: Text(widget.country.countryName, style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
         centerTitle: true,
       ),
       body: SingleChildScrollView(

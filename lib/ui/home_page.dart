@@ -25,8 +25,8 @@ class HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey[300],
-        title: Text('Country API 🌍', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blueGrey[900])),
+        backgroundColor: Colors.cyan[800],
+        title: const Text('Country API', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -34,37 +34,46 @@ class HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(15.0),
             child: Column(
               children: [
-                const SizedBox(height: 50),
+                const SizedBox(height: 30),
                 SizedBox(
-                  width: width - 30,
-                  height: 200,
+                  width: width - 60,
                   child: Image.asset(
-                    'images/world_map.png',
+                    'images/globe.png',
                     fit: BoxFit.cover,
                   ),
                 ),
-                const SizedBox(height: 50),
-                customTextField(controller: searchEditingController, hint: "Select your coutry", edgeInsets: const EdgeInsets.all(12.0)),
+                const SizedBox(height: 30),
+                customTextField(controller: searchEditingController, hint: "Select your country", edgeInsets: const EdgeInsets.all(12.0)),
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () async {
-                    Country country = await fetchCountryData(searchEditingController.text);
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder: (BuildContext context) => CountryPage(country: country)), // Retirez le const ici
-                    );
+                    try {
+                      Country country = await fetchCountryData(searchEditingController.text);
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (BuildContext context) => CountryPage(country: country)),
+                      );
+                    } catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(e.toString(), textAlign: TextAlign.center,)),
+                      );
+                    }
                   },
                   style: ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(Colors.blueGrey[400]),
+                    backgroundColor: MaterialStatePropertyAll(Colors.cyan[800]),
                     shape: MaterialStatePropertyAll(
                       RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
+                        borderRadius: BorderRadius.circular(50.0),
                       ),
                     ),
                   ),
-                  child: const Text('Find country', style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20
-                  )),
+                  child: const Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text('Find country', style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold
+                    )),
+                  ),
                 ),
               ],
             ),
@@ -81,6 +90,7 @@ class HomePageState extends State<HomePage> {
     return Padding(
       padding: edgeInsets,
       child: TextField(
+        style: const TextStyle(fontSize: 20),
         controller: controller,
         textAlign: TextAlign.center,
         decoration: InputDecoration(hintText: hint),

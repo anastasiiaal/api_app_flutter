@@ -27,6 +27,6 @@ Future<Country> fetchCountryData(String countryName) async {
       throw Exception('No country found');
     }
   } else {
-    throw Exception('Problem fetching data');
+    throw Exception('No country found');
   }
 }
