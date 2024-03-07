@@ -61,7 +61,7 @@ class CountryPageState extends State<CountryPage> {
                   children: [
                     Column(
                       children: [
-                        SmallTitle(width: columnWidth, text: "Native name"),
+                        SmallTitle(width: columnWidth, text: "Full name"),
                         SimpleText(width: columnWidth, text: widget.country.officialName),
                         const SizedBox(height: 20),
                         SmallTitle(width: columnWidth, text: "Capital"),
